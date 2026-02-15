@@ -21,18 +21,8 @@ public OrderPaymentVO payment(OrdersPaymentDTO ordersPaymentDTO) throws Exceptio
         vo.setPackageStr(jsonObject.getString("package"));
 
         //替代微信支付成功后的状态更新，多定义一个方法进行修改
-//        //获取订单号
+        //获取订单号
         String OrderNumber= ordersPaymentDTO.getOrderNumber();
-//        Integer OrderPaidStatus = Orders.PAID;
-//        Integer OrderStatus = Orders.TO_BE_CONFIRMED;
-//
-//        //没有将支付时间赋值：check_out
-//        LocalDateTime checkoutTime = LocalDateTime.now();
-//
-//
-//        log.info("调用updateStatus用于替换微信支付更新数据库状态的问题");
-//        orderMapper.updateStatus(OrderPaidStatus, OrderStatus, checkoutTime, OrderNumber);
-
         paySuccess(OrderNumber);
 
         return vo;
